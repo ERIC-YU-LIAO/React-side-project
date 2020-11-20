@@ -1,4 +1,4 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase/app'
 import 'firebase/firestore';
 import 'firebase/auth';
 
@@ -13,6 +13,30 @@ const config = {
     appId: "1:505337947931:web:31646b4c5e0df0ae0d15be",
     measurementId: "G-ERHXT360HV"
 }
+
+export const creatUserProfileDocument= async(uesrAuth,addtionalData) =>{
+    if(!uesrAuth) return;
+    const userRef = firestore.doc(`users/${uesrAuth.uid}`)
+    const snapshot = await userRef.get()
+    console.log(snapshot)
+    if(!snapshot.exists){
+        const {displayName,email} = uesrAuth;
+        const createdAt = new Date()
+        try{
+            await userRef.set({
+                displayName,
+                email,
+                createdAt,
+                ...addtionalData
+            })
+            
+        }catch(error){
+            console.log('error',error.message)
+        }
+    }
+    return userRef;
+}
+
 
 firebase.initializeApp(config);
 
