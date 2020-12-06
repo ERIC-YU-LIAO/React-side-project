@@ -1,49 +1,44 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import Frominput from '../fromInput/fromInput'
 import '../signIn/signIncomponent.scss'
 import Button from '../button/button'
 
 import {auth, signInWithGoogle} from '../DataFirebase/firebase' 
 
-class SignIn extends Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            email: '',
-            password: '',    
-        }
-    }
-
-
-    handfromChange = async event =>{
+const SignIn = () =>{
+    const [userCrendential, setUserCrendential] = useState({ email:'',password:''})
+    const {email,password} = userCrendential
+    
+    const handfromChange = async event =>{
         event.preventDefault()
-            const {email,password} =this.state
             try{
                 await auth.signInWithEmailAndPassword(email,password);
-                this.setState({
+                setUserCrendential({
                     email:'',
                     password:'',
                 })
+                alert('Welcome')
             }catch (error){
                 console.log('fail',error)
+                alert(error)
             }
     }
 
-    inputChange = (e) =>{
+    const inputChange = (e) =>{
         e.preventDefault()
         const {name,value} = e.target
-        this.setState({[name]:value})
+        // 改變 state
+        setUserCrendential({...userCrendential ,[name]:value})
         
     }
 
-    render(){
         return(
             <div className='signin'>
                 <h1>This is Account</h1>
                 {/* <span> Sign in</span> */}
-                <form onSubmit={this.handfromChange}>
-                    <Frominput inputChange={this.inputChange} label="email" name="email" type="email" value={this.state.email} required/>
-                    <Frominput inputChange={this.inputChange} label="password" name="password" type="password" value={this.state.password} required/>
+                <form onSubmit={handfromChange}>
+                    <Frominput inputChange={inputChange} label="email" name="email" type="email" value={email} required/>
+                    <Frominput inputChange={inputChange} label="password" name="password" type="password" value={password} required/>
                     <Button tpye="submit" value="sunmmit From" > Sign in</Button>
                     <Button  onClick={signInWithGoogle} isGoogleSignIn> 
                     {''}
@@ -54,7 +49,6 @@ class SignIn extends Component{
             </div>
         )
     }
-}
 
 
 export default SignIn

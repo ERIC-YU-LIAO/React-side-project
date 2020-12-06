@@ -14,14 +14,25 @@
       font-size: 18px;
       margin-top: 50px auto;
     }
+
+    
   
     .cart-items {
-      height: 340px;
+      height: 540px;
       display: flex;
       flex-direction: column;
       overflow: scroll;
+      .cart-item{
+        // border: 1px solid gray;
+        font-size: 20px;
+        font-weight: 600;
+        .item-details{
+          font-size: 20px;
+          font-weight: 600;
+          padding: 20px;
+        }
+      }
     }
-  
     button {
       margin-top: auto;
     }

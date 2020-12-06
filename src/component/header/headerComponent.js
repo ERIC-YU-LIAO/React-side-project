@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useContext,useState} from 'react'
 import {Link} from 'react-router-dom'
 import '../header/headerComponent.scss'
 import {auth} from '../DataFirebase/firebase'
@@ -6,8 +6,15 @@ import CardIcon from '../cardIcon/cardIconComponent'
 import CartDropdown from '../cardDropdown/CartDropdown'
 
 import {connect} from 'react-redux'
+import Usercontext from '../../contextsAPI/current-user/user'
+// import Cartcontext from '../../contextsAPI/cart/cart'
+import {Cartcontext} from '../../contextProvider/cartProvider'
 
-const Header = ({currentUser,hidden}) =>{
+
+const Header = () =>{
+    const currentUser = useContext(Usercontext)
+    const { hidden } = useContext(Cartcontext)
+
     return(
         <div className="header">
             <Link className="logo-container" to="/">
@@ -17,7 +24,7 @@ const Header = ({currentUser,hidden}) =>{
             <div className="options">
             <Link className="logo-container" to="/shop">
                SHOP
-        </Link>
+             </Link>
             <Link className="logo-container" to="/shop">
                 CONTACT
             </Link>
@@ -30,18 +37,16 @@ const Header = ({currentUser,hidden}) =>{
             }
             <CardIcon/>
             </div>
-            {
-                hidden ? null : <CartDropdown/>
-                /* <CartDropdown/> */
-            }
-        
+                {hidden ? null : <CartDropdown/>}
         </div>
     )
 }
+// user:{currentUser},
+// const mapStateToProps =  ({ cart:{hidden}}) =>({
+//     // currentUser,
+//     hidden,
+// })
 
-const mapStateToProps =  ({user:{currentUser}, cart:{hidden}}) =>({
-    currentUser,
-    hidden,
-})
+// export default connect(mapStateToProps)(Header);
 
-export default connect(mapStateToProps)(Header);
+export default Header

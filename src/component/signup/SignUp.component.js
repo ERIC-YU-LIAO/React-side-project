@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Frominput from '../fromInput/fromInput'
 import Button from '../button/button'
@@ -6,21 +6,21 @@ import {auth,creatUserProfileDocument} from '../DataFirebase/firebase'
 
 import '../signup/SignUp.scss' 
 
-class Signup extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            displayName:'',
-            email:'',
-            password:'',
-            comfirmPassword:'',
-        }
-    }
 
 
-    handlesummit = async event => {
+
+const Signup = () =>{
+      
+    const [userCrendential,setUserCrendential] = useState({
+        displayName:'',
+        email:'',
+        password:'',
+        comfirmPassword:'',        
+    })
+
+   const  handlesummit = async event => {
         event.preventDefault()
-        const {displayName,email,password,comfirmPassword} =  this.state
+        const {displayName,email,password,comfirmPassword} = userCrendential
         if (password !== comfirmPassword){
             alert('It is not correct!!')
             return
@@ -29,37 +29,35 @@ class Signup extends React.Component{
             const {user} = await auth.createUserWithEmailAndPassword(email,password)
             await creatUserProfileDocument(user,{displayName})
             //更新 為空值
-            this.setState({
+            setUserCrendential({
                 displayName:'',
                 email:'',
                 password:'',
                 comfirmPassword:'',
             })
+           
         }
         catch(error){
             console.log('error',error)
         }
     }
 
-    hadleChange = event => {
+    const hadleChange = event => {
         const {name, value} = event.target
-        this.setState({[name]:value})
-
+        setUserCrendential({[name]:value})
     }
 
-
-    render(){
-        const {displayName,email,password,comfirmPassword} = this.state
+        const {displayName,email,password,comfirmPassword} = userCrendential
         return(
             <div className="sign-up">
                     <h2 className="title">I don't have account</h2>
                     <span>sign up with email and  password</span>
-                    <form className="sign-up-form" onSubmit={this.handlesummit}>
+                    <form className="sign-up-form" onSubmit={handlesummit}>
                         <Frominput
                         type="text"
                         name='displayName'
                         value={displayName}
-                        onChange={this.hadleChange}
+                        onChange={hadleChange}
                         label='DisplayName'
                         required
                         />
@@ -67,7 +65,7 @@ class Signup extends React.Component{
                         type="text"
                         name='email'
                         value={email}
-                        onChange={this.hadleChange}
+                        onChange={hadleChange}
                         label='email'
                         required
                         />
@@ -76,7 +74,7 @@ class Signup extends React.Component{
                         type="text"
                         name='password'
                         value={password}
-                        onChange={this.hadleChange}
+                        onChange={hadleChange}
                         label='password'
                         required
                         />
@@ -84,7 +82,7 @@ class Signup extends React.Component{
                         type="text"
                         name='comfirmPassword'
                         value={comfirmPassword}
-                        onChange={this.hadleChange}
+                        onChange={hadleChange}
                         label='comfirmPassword'
                         required
                         /> 
@@ -93,6 +91,6 @@ class Signup extends React.Component{
             </div>
         )
     }
-}
+
 
 export default Signup;

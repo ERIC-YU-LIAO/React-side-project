@@ -13,9 +13,9 @@
   font-weight: bolder;
   border: none;
   cursor: pointer;
-  display: flex;
+  // display: flex;
   justify-content: center;
-
+  margin: 15px;
   &:hover {
     background-color: white;
     color: black;
