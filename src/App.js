@@ -22,6 +22,7 @@ export class App extends React.Component{
       super()
       this.state={
         currentUser:null,
+        cartItem:null,
       }
     }
 
@@ -42,6 +43,8 @@ export class App extends React.Component{
         })
       }
       this.setState({currentUser:userAuth})
+
+
       // addCollectionAndDocuments('collections',collectionArray)
       // map 推上去到firebase 使用addCollectionAndDocuments('KEY', [] DATA ) !! important 
       // addCollectionAndDocuments('collection',collectionArray.map(({title,items})=> ({title,items})))
@@ -66,10 +69,10 @@ export class App extends React.Component{
         <Switch>
           <Route exact path="/" component={HomePage}/>
           <Route path="/Shop" component={ShopPage}/>
-          <Route path="/checkoutpage" component={CheckoutPage}/>
+          <Route path="/checkoutpage" component={CheckoutPage} render={()=>this.state.cartItem = 0 ?(<Redirect to="/"/>):(<Redirect to="/"/>)}/>
           {/* <Route exact path="/Signin" render={ ()=> this.props.currentUser ? (<Redirect to='/'/>) : <SigninPage/>}/>
            */}
-            <Route exact path="/Signin" render={ ()=> this.state.currentUser ? (<Redirect to="/"/>) : <SigninPage/>}/>
+          <Route exact path="/Signin" render={ ()=> this.state.currentUser ? <Redirect to="/"/> : <SigninPage/>}/>
       </Switch>
       </div>
     )
@@ -83,7 +86,6 @@ export class App extends React.Component{
 //   currentUser:selectCurrentUser,
 //   collectionArray: selectCollectionForPreview
 // })
-
 // const mapDispatchToProps = dispatch =>({
 //   setCurrentUser : user => dispatch(setCurrentUser(user))
 // })

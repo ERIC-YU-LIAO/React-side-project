@@ -1,6 +1,7 @@
 //增加 陣列中 數量 屬性
 import {addItemTocart,removeItemFromCart} from '../cart/cart.utils'
 import {cartType} from '../cart/cartType'
+
 // state 初始值
 const  INITAL_STATE = {
     hidden : true,

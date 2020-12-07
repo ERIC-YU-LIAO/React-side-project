@@ -22,7 +22,7 @@ const Signup = () =>{
         event.preventDefault()
         const {displayName,email,password,comfirmPassword} = userCrendential
         if (password !== comfirmPassword){
-            alert('It is not correct!!')
+            alert('此密碼不正確!!')
             return
         }
         try{

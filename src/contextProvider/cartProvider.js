@@ -1,13 +1,12 @@
 //  import Hook and contextAPI
 import {createContext, useState, useEffect, useReducer} from 'react'
-import {addItemTocart,removeItemFromCart,clearItemFromCart,getItemIconQuntity,getCartcashTotal,getCartLocalStroge} from './cart.utils'
+import {addItemTocart,removeItemFromCart,clearItemFromCart,getItemIconQuntity,getCartcashTotal,getCartLocalStroge,payCart} from './cart.utils'
 // import cartReducer from '../../src/component/redux/cart/cartReducer'
 
 export const Cartcontext = createContext({
     hidden: true,
     toggleHidden:() =>{},
     cartItems:[],
-    // cartItems: JSON.parse(localStorage.getItem('cartItems'))|| [],
     addItem:() =>{},
     removeItem: ()=>{},
     clearItem : ()=>{},
@@ -24,15 +23,16 @@ export const CartProvider = ({children}) =>{
     const addItem = item => setCartItems(addItemTocart(cartItems,item));
     const removeItem = item => setCartItems(removeItemFromCart(cartItems,item));
     const clearItem = item => setCartItems(clearItemFromCart(cartItems,item))
+    const payItem = item => setCartItems(payCart(cartItems))
     const togglehidden = () => sethidden(!hidden)
-
+    
     // render 後做事此getItemIconQuntity() function 在執行累加動作
     useEffect(()=>{
         setcartItemcount(getItemIconQuntity(cartItems))
         setcartCashTotal(getCartcashTotal(cartItems))
         localStorage.setItem('cartItems',JSON.stringify(cartItems))
     },[cartItems]);
-    return <Cartcontext.Provider value={{hidden,cartItems:cartItems,cartItemcount,addItem,togglehidden,removeItem,clearItem,cartCashTotal}}> {children}</Cartcontext.Provider>
+    return <Cartcontext.Provider value={{hidden,cartItems:cartItems,cartItemcount,addItem,togglehidden,removeItem,clearItem,cartCashTotal,payItem}}>{children}</Cartcontext.Provider>
 }
 
 

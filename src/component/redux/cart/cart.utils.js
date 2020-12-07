@@ -1,5 +1,6 @@
 import CartItem from "../../cartItem/cartItem";
 
+
 export const addItemTocart = (cartItems,cartItemsToAdd) => {
         // 宣告 item have id property = cartItmes.find() 去找 cartItem.id === cartItemToAdd
         const existingCartItem = cartItems.find(
@@ -27,8 +28,6 @@ export const removeItemFromCart = (cartItems,cartItemToRemove)=>{
     }
 
     return cartItems.map(cartItem => cartItem.id === cartItemToRemove.id    
-                         ? { ...cartItem, quantity:cartItem.quantity -1}
-                         : cartItem)
-           
-                        
+                        ? { ...cartItem, quantity:cartItem.quantity -1}
+                        : cartItem)
 }

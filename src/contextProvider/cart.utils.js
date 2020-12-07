@@ -39,12 +39,9 @@ export const clearItemFromCart = (cartItems, item )=>
  (cartItems.filter( cardItem=> cardItem.id !== item.id ))
 
 
-
-
 export const getItemIconQuntity = (cartItems)=>
 (    cartItems.reduce((accumalateQuqnantity,cartItem)=>
-    accumalateQuqnantity + cartItem.quantity,0)
-    
+    accumalateQuqnantity + cartItem.quantity,0)   
 )
 
 export const getCartcashTotal = (cartItems)=>
@@ -52,7 +49,7 @@ export const getCartcashTotal = (cartItems)=>
     accumalateQuqnantity + cartItem.quantity * cartItem.price,0 
     )
 
-export const getCartLocalStroge = (cartItems)=>
-JSON.parse(localStorage.getItem(cartItems))
+export const getCartLocalStroge = (cartItems)=>( JSON.parse(localStorage.getItem(cartItems)))
 
 
+export const payCart = (caetItems)=> (alert('確定付款'), caetItems=[]) 
