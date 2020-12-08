@@ -28,7 +28,7 @@ export const fetchCollectionsStartAsync = () =>{
          //call action put in data 
             dispatch(fetchCollectionsSuccess(collectionMap))
             // this.setState({loading:false})
-            // console.log('collectionMap11' , collectionMap)
+            console.log('collectionMap11' , collectionMap)
         }).catch(error =>dispatch(fetchCollectionFail(error)))
     }
 }

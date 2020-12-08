@@ -11,12 +11,22 @@
       width: 24px;
       height: 24px;
     }
-  
     .item-count {
       position: absolute;
-      font-size: 10px;
+      font-size: 18px;
+      border-radius: 35%;
+      background-color: rgba(255, 0, 21, 0.699);
+      margin-left: 10px;
+      padding-left: 20%;
+      width: 25px;
+      color: white;
       font-weight: bold;
-      bottom: 12px;
+      // bottom: 12px;
+    }
+    .cart{
+      // border:3px solid gray;
+      margin: 12px;
+      padding: 10px 50px 5px 2px 
     }
   }
   

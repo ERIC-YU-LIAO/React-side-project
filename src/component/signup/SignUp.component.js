@@ -50,8 +50,8 @@ const Signup = () =>{
         const {displayName,email,password,comfirmPassword} = userCrendential
         return(
             <div className="sign-up">
-                    <h2 className="title">I don't have account</h2>
-                    <span>sign up with email and  password</span>
+                    <h2 className="title">註冊帳號</h2>
+                    <span>如果尚未註冊帳號填寫下方資訊</span>
                     <form className="sign-up-form" onSubmit={handlesummit}>
                         <Frominput
                         type="text"
@@ -86,7 +86,7 @@ const Signup = () =>{
                         label='comfirmPassword'
                         required
                         /> 
-                        <Button type="submit">submit</Button>
+                        <Button type="submit">送出</Button>
                     </form>
             </div>
         )

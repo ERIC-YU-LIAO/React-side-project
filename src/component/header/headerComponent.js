@@ -10,6 +10,9 @@ import Usercontext from '../../contextsAPI/current-user/user'
 // import Cartcontext from '../../contextsAPI/cart/cart'
 import {Cartcontext} from '../../contextProvider/cartProvider'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoins ,faHouseUser} from '@fortawesome/free-solid-svg-icons'
+
 
 const Header = () =>{
     const currentUser = useContext(Usercontext)
@@ -18,23 +21,30 @@ const Header = () =>{
     return(
         <div className="header">
             <Link className="logo-container" to="/">
-                CLOTH.COM
+                SHOPGO衣網
             </Link>
-
             <div className="options">
-            <Link className="logo-container" to="/shop">
-               SHOP
+            <Link className="option" to="/shop">
+            
+                <FontAwesomeIcon icon={faCoins} size="sm"> </FontAwesomeIcon>
+               商店
              </Link>
-            <Link className="logo-container" to="/shop">
+
+             {/* 登入判斷 */}
+                    { 
+                    currentUser
+                    ?
+
+                (<div className='option' onClick={()=> auth.signOut()}>signOut</div> )
+                    :
+                    (<Link className='option'  to="/Signin">
+                        <FontAwesomeIcon icon={faHouseUser} size="sm"> </FontAwesomeIcon>
+                        登入</Link>)
+                    }
+
+            {/* <Link className="option" to="/shop">
                 CONTACT
-            </Link>
-            { 
-            currentUser
-            ?
-           (<div className='option' onClick={()=> auth.signOut()}>signOut</div>)
-            :
-            (<Link className='option'  to="/Signin">Signin</Link>)
-            }
+            </Link> */}
             <CardIcon/>
             </div>
                 {hidden ? null : <CartDropdown/>}

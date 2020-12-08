@@ -38,15 +38,22 @@
     height: 5%;
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 600;
+    color: rosybrown;
 
     .name {
-      width: 90%;
+      width: 70%;
+      font-size: 18px;
       margin-bottom: 15px;
     }
 
     .price {
-      width: 10%;
+      text-decoration-line: underline;
+      font-size: 20px;
+      color: brown;
+      width: 20%;
     }
   }
 }

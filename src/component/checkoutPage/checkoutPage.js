@@ -33,7 +33,7 @@ const CheckoutPage = () =>{
         </div>
         {cartItems.map(cartItem => (<CheckoutItem key={cartItem.id} cartItem={cartItem}/>))}
         <div className="total">
-            <span>Total:${cartCashTotal}</span>
+            <span>Total:  {cartCashTotal}</span>
         </div>
         <div>
         <Button onClick={()=>payItem()}>付款</Button>

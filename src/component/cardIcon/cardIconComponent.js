@@ -6,14 +6,16 @@ import '../cardIcon/cardIconComponent.scss'
 
 import {connect} from 'react-redux'
 import {Cartcontext} from '../../contextProvider/cartProvider'
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
 const CardIcon = ({itemCount}) => {
     const {togglehidden,cartItemcount} = useContext(Cartcontext)
  return (  
     <div className="cart-icon" onClick={togglehidden}>
-        <Icon className="shopping-icon"/>
-        <span className="item-count"> {cartItemcount}</span>
+        <div>
+        <FontAwesomeIcon icon={faCartArrowDown} className="cart" size='1x'></FontAwesomeIcon>
+        </div>
+         <span className="item-count"> {cartItemcount}</span>
     </div>
         )
 }

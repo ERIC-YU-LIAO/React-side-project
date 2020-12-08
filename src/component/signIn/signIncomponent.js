@@ -34,15 +34,15 @@ const SignIn = () =>{
 
         return(
             <div className='signin'>
-                <h1>This is Account</h1>
+                <h1>帳號登入</h1>
                 {/* <span> Sign in</span> */}
                 <form onSubmit={handfromChange}>
                     <Frominput inputChange={inputChange} label="email" name="email" type="email" value={email} required/>
                     <Frominput inputChange={inputChange} label="password" name="password" type="password" value={password} required/>
-                    <Button tpye="submit" value="sunmmit From" > Sign in</Button>
+                    <Button tpye="submit" value="sunmmit From" > 登入</Button>
                     <Button  onClick={signInWithGoogle} isGoogleSignIn> 
                     {''}
-                    Sign in with Google{''}
+                    使用登入 Google 帳號{''}
                     </Button>
                 </form>
 

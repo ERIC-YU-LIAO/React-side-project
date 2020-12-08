@@ -8,7 +8,7 @@ import Header from '../src/component/header/headerComponent'
 import SigninPage from '../src/component/signinPage/signinPage'
 import {auth,creatUserProfileDocument,addCollectionAndDocuments} from '../src/component/DataFirebase/firebase'
 import CheckoutPage from '../src/component/checkoutPage/checkoutPage'
-
+import Footer from '../src/component/footer/footer'
 import {connect} from 'react-redux'
 import {setCurrentUser} from '../src/component/redux/user/userAction'
 import {selectCurrentUser} from './component/redux/user/userSelectors'
@@ -74,6 +74,8 @@ export class App extends React.Component{
            */}
           <Route exact path="/Signin" render={ ()=> this.state.currentUser ? <Redirect to="/"/> : <SigninPage/>}/>
       </Switch>
+
+      <Footer/>
       </div>
     )
   }

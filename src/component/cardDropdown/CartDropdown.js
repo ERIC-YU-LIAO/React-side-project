@@ -15,9 +15,9 @@ const CartDropdown = ({history}) =>{
         <div className='cart-dropdown'>
              <div className="cart-items">
              {
-                cartItems.length ? ( cartItems.map(cartItem => (<CartItem  key={cartItem.id} item={cartItem}/>))):(<p>it is nothing</p>)   
+                cartItems.length ? ( cartItems.map(cartItem => (<CartItem  key={cartItem.id} item={cartItem}/>))):(<p>購物車內目前沒有商品</p>)   
              }
-                <Button onClick={()=> { history.push('/checkoutpage');toggleCartHidden() } }>Check</Button>
+                <Button onClick={()=> { history.push('/checkoutpage');toggleCartHidden() } }>結帳</Button>
              </div>
         </div>
     )

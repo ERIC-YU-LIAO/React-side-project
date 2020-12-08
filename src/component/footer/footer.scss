@@ -1,0 +1,13 @@
+.footer{    
+    margin-top: 50px;
+    border-top: 1px solid gray;
+    .title{
+        display: flex;
+        flex-direction:row;
+        justify-content:center;
+        font-weight: 800;
+        opacity: 0.6;
+        font-size: 12px;
+        color: gray;
+    }
+}
