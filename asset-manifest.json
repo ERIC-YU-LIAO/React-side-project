@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.d49c9693.chunk.css",
-    "main.js": "/static/js/main.3b89e98a.chunk.js",
-    "main.js.map": "/static/js/main.3b89e98a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.42e56946.js",
-    "runtime-main.js.map": "/static/js/runtime-main.42e56946.js.map",
-    "static/js/2.0b82ea02.chunk.js": "/static/js/2.0b82ea02.chunk.js",
-    "static/js/2.0b82ea02.chunk.js.map": "/static/js/2.0b82ea02.chunk.js.map",
-    "static/js/3.be45a873.chunk.js": "/static/js/3.be45a873.chunk.js",
-    "static/js/3.be45a873.chunk.js.map": "/static/js/3.be45a873.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.d49c9693.chunk.css.map": "/static/css/main.d49c9693.chunk.css.map",
-    "static/js/2.0b82ea02.chunk.js.LICENSE.txt": "/static/js/2.0b82ea02.chunk.js.LICENSE.txt",
-    "static/media/logo.2d27ead7.svg": "/static/media/logo.2d27ead7.svg",
-    "static/media/shopping-bag.a688874f.svg": "/static/media/shopping-bag.a688874f.svg"
+    "main.css": "/React-side-project/static/css/main.d49c9693.chunk.css",
+    "main.js": "/React-side-project/static/js/main.3b89e98a.chunk.js",
+    "main.js.map": "/React-side-project/static/js/main.3b89e98a.chunk.js.map",
+    "runtime-main.js": "/React-side-project/static/js/runtime-main.92683dde.js",
+    "runtime-main.js.map": "/React-side-project/static/js/runtime-main.92683dde.js.map",
+    "static/js/2.b97ee38b.chunk.js": "/React-side-project/static/js/2.b97ee38b.chunk.js",
+    "static/js/2.b97ee38b.chunk.js.map": "/React-side-project/static/js/2.b97ee38b.chunk.js.map",
+    "static/js/3.be45a873.chunk.js": "/React-side-project/static/js/3.be45a873.chunk.js",
+    "static/js/3.be45a873.chunk.js.map": "/React-side-project/static/js/3.be45a873.chunk.js.map",
+    "index.html": "/React-side-project/index.html",
+    "static/css/main.d49c9693.chunk.css.map": "/React-side-project/static/css/main.d49c9693.chunk.css.map",
+    "static/js/2.b97ee38b.chunk.js.LICENSE.txt": "/React-side-project/static/js/2.b97ee38b.chunk.js.LICENSE.txt",
+    "static/media/logo.2d27ead7.svg": "/React-side-project/static/media/logo.2d27ead7.svg",
+    "static/media/shopping-bag.a688874f.svg": "/React-side-project/static/media/shopping-bag.a688874f.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.42e56946.js",
-    "static/js/2.0b82ea02.chunk.js",
+    "static/js/runtime-main.92683dde.js",
+    "static/js/2.b97ee38b.chunk.js",
     "static/css/main.d49c9693.chunk.css",
     "static/js/main.3b89e98a.chunk.js"
   ]
